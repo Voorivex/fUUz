@@ -12,7 +12,7 @@ function fuzzUnicode() {
             $fuzzChar = mb_chr($codePoint, 'UTF-8');
 
             // Use Unicode character in a GET parameter instead of IP
-            $url = "http://127{$fuzzChar}0.0.1/";
+            $url = "http://{$fuzzChar}27.0.0.1/";
 
             // Initialize cURL
             $ch = curl_init();
@@ -29,7 +29,6 @@ function fuzzUnicode() {
 
             // Check response
             if (strpos($response, "ok") !== false) {
-                print($url);
                 printf("Unicode Character: %s (U+%04X)\n", $fuzzChar, $codePoint);
             }
         } catch (Exception $e) {

@@ -7,7 +7,7 @@ async function fuzzUnicode() {
         if (codePoint >= 0xD800 && codePoint <= 0xDFFF) continue;
 
         const fuzzChar = String.fromCodePoint(codePoint);
-        const targetIP = `127${fuzzChar}0.0.1`;
+        const targetIP = `${fuzzChar}27.0.0.1`;
 
         try {
             const response = await axios.get(`http://${targetIP}`, {
